@@ -1,0 +1,18 @@
+Andalucia;Huelva;Cádiz;Sevilla;Córdoba;Málaga;Granada;Jaén;Almería
+Aragon;Huesca;Zaragoza;Teruel
+Asturias;Oviedo
+Cantabria;Santander
+Castilla-La Mancha;Toledo;Ciudad Real;Albacete;Guadalajara;Cuenca
+Castilla y Leon;Ávila;Burgos;Palencia;Salamanca;Valladolid;León;Zamora;Soria;Segovia
+Cataluna;Girona;Barcelona;Lleida;Tarragona
+Ceuta;Ceuta
+Extremadura;Cáceres;Badajoz
+Galicia;Ourense;A Coruña;Lugo;Pontevedra
+Islas Baleares;Mallorca;Menorca;Ibiza;Formentera
+Islas Canarias;Gran Canaria;Tenerife;Fuerteventura;El hierro;Lanzarote;La Gomera;
+La Rioja;Logroño
+Madrid;Madrid
+Melilla;Melilla
+Murcia;Cartagena
+Navarra;Pamplona
+Pais Vasco;Vizcaya;Álava;Guipuzcoa

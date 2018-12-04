@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Comunidades y provincias</title>
+<script>
+	function buscaProvincia() {
+		//se genera la query_string
+		var datos = 'comunidad=' + document.getElementById("comunidad").value;
+		
+		var xmlhttp;  // objeto XMLHttpRequest
+		if (window.XMLHttpRequest) {  // para IE7+, Firefox, Chrome, Opera, Safari
+		    xmlhttp = new XMLHttpRequest();
+		} else {  // para IE6, IE5
+		    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		xmlhttp.onreadystatechange = function() {
+		// si el resultado está listo (readyState==4) y la respuesta es correcta (status==200)
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				var respuesta = xmlhttp.responseText;
+			    arrayProvincias = respuesta.split(";");
+			    var select = document.getElementById("provincias"); //Seleccionamos el select
+			    
+			    if(select.length > 0) {
+			    	for(var i=0; i < arrayProvincias.length; i++){ 
+				        select.remove(i);
+				    }
+			    }
+			    
+			    for(var i=0; i < arrayProvincias.length; i++){ 
+			        var option = document.createElement("option"); //Creamos la opcion
+			        option.innerHTML = arrayProvincias[i+1]; //Metemos el texto en la opción
+			        select.appendChild(option); //Metemos la opción en el select
+			    }
+			}
+		}
+		xmlhttp.open("GET","PracticaAjax?" + datos ,true);  // crea la conexión con parámetros: método, url, asíncrono?
+		xmlhttp.setRequestHeader("X-Requested-With", "xmlhttprequest");  // establece la cabecera HTTP necesaria
+		xmlhttp.send();  // lanza la solicitud
+	}
+</script>
+</head>
+<body>
+	<form>
+		Comunidad autónoma: <select name="comunidad" id="comunidad">
+			<option value=""></option>
+			<option value="andalucia">Andalucía</option>
+			<option value="aragon">Aragón</option>
+			<option value="asturias">Principado de Asturias</option>
+			<option value="islas baleares">Islas Baleares</option>
+			<option value="pais vasco">País Vasco</option>
+			<option value="islas canarias">Canarias</option>
+			<option value="cantabria">Cantabria</option>
+			<option value="castillaLaMancha">Castilla-La Mancha</option>
+			<option value="castilla Y Leon">Castilla y León</option>
+			<option value="cataluna">Cataluña</option>
+			<option value="extremadura">Extremadura</option>
+			<option value="galicia">Galicia</option>
+			<option value="madrid">Comunidad de Madrid</option>
+			<option value="murcia">Región de Murcia</option>
+			<option value="navarra">Comunidad Foral de Navarra</option>
+			<option value="la Rioja">La Rioja</option>
+			<option value="comunidad Valenciana">Comunidad Valenciana</option>
+			<option value="ceuta">Ceuta</option>
+			<option value="melilla">Melilla</option>
+		</select>
+		Provincias: <select name="provincias" id="provincias">
+			
+		</select><br>
+		<button type="button" onClick="buscaProvincia()">Ver provincias</button><br>
+	</form>
+	<!--<p id="pruebas"></p>-->
+</body>
+</html>
